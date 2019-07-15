@@ -1,333 +1,180 @@
-
-  <!-- HEAD -->
-  
+<!DOCTYPE html>
+<html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Joe Somma - Software Engineer, Web Developer, Mobile Developer</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jonathan </title>
+    <link href="/styles/reset.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- FONT-AWESOME CSS REF -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
-  </head>
-  
-  <!-- MAIN BODY -->
-  
-  <body data-spy="scroll" data-target=".navbar-collapse">
-    
-    <!-- NAVBAR -->
-    
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        
-        <!-- NAVBAR HEADER -->
-        <div class="navbar-header">
-          <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#home">joe somma</a>
-        </div>
-
-        <!-- NAVBAR LINKS - COLLAPSABLE -->
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#home">home</a></li>
-            <li><a href="#services">services</a></li>
-            <li><a href="#portfolio">portfolio</a></li>
-            <li><a href="#connect">connect</a></li>
-          </ul>
-        </div>
-        
-      </div> <!-- .container -->
-      
-    </nav>
-    
-    <!-- END NAVBAR -->
-    
-    <!-- HOME SECTION -->
-    
-    <div id="home" class="container mt-content-container mt-top-container-home">
-      
-      <!-- INTRODUCTION AND MAIN HEADING -->
-      <div class="row mt-top-row-home-white">
-        
-        <div class="col-md-8 col-md-offset-2">
-          <p class="lead mt-padding-top">Hello, my name is Joe and I am a</p>
-          <h1>FULL STACK WEB DEVELOPER</h1>
-          <div class="mt-block-line"></div>          
-        </div>
-
-      </div> <!-- .row -->
-      
-      <!-- SUB HEADING AND TAG LINE -->
-      <div class="row mt-sub-head-white text-center">
-        <div class="col-md-6 col-md-offset-3">
-          <p class="lead">I am passionate about software development and I love the excitement of a client when they see their business come to life through software</p>
-        </div>
-        
-      </div> <!-- .row -->
-
-      <!-- NAV DOWN - NEXT SECTION -->
-      <div class="row mt-nav-next-white">
-      
-        <div class="col-md-12">      
-          <div class="mt-scroll-down-link">
-            <a href="#services" alt="Scroll Next">
-              <span class="fa fa-angle-double-down"></span>
-            </a>        
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="/styles/base.css" rel="stylesheet">
+    <link href="/styles/layout.css" rel="stylesheet">
+    <link href="/styles/module.css" rel="stylesheet">
+    <link href="/vendor/icomoon/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script id="project_template" type="text/x-handlebars-template">
+      <article class="project">
+        <header class="row project_title">
+          <h3>
+            <a href="{{projectUrl}}">{{title}}</a>
+          </h3>
+        </header>
+        <section class="row project_description">
+          <a href="{{projectUrl}}" class="col-md-4">
+            <img src="{{img}}" class="img-responsive">
+          </a>
+          <div class="col-md-8 text-left project_body">
+            {{{body}}}
           </div>
-        </div> 
-        
-      </div> <!-- .row -->
-          
-    </div> <!-- .container -->
-    
-    <!-- END HOME -->
-    
-    <!-- SERVICES -->
-    
-    <div id="services" class="container-fluid mt-content-container mt-container-services">
-      
-      <div class="row mt-top-row text-muted">
-        
-        <div class="col-md-4 col-md-offset-4">
-          <h1>WHAT I DO</h1>
-          <div class="mt-block-line"></div>
-          <p class="lead">These are the skills I can offer to help build and deploy your web application<p>          
-       </div>
- 
-      </div> <!-- .row -->
-      
-      <!-- SERVICE THUMBNAILS -->
-
-      <div class="row mt-service-thumb-row">
-        
-
-        <div class="col-md-4">
-          <a href="#services" alt="Web Programming">            
-            <div class="thumbnail mt-service-thumb">
-              <div class="caption mt-service-thumb-text">
-                <span class="fa fa-code fa-5x"></span>
-                <h3>Web Programming</h3>
-                <p>I can help you build your web applications using technologies that include HTML, CSS, Javascript, Bootstrap, JQuery, AngularJS, PHP, and MySQL</p>
+        </section>
+        <section class="row">
+          <div class="col-md-4">
+            Date: <time pubdate datetime="{{projectDate}}">{{projectDate}}</time>
+          </div>
+          <a href="#" class="col-md-2 text-left learn_more">Show More &rarr;</a>
+          <div class="col-md-6 text-left project_skills">
+            {{#list skills}}{{skill}}{{/list}}
+          </div>
+        </section>
+      </article>
+    </script>
+    <script id="github_template" type="text/x-handlebars-template">
+      <article class="github">
+        <section>
+          <ul>
+            <li><a href="{{html_url}}">{{name}}</a></li>
+          </ul>
+        </section>
+      </article>
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav class="navbar navbar-default">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">Jonathan Heemstra</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="/about">About Me</a></li>
+              <li><a href="/projects">Projects</a></li>
+              <li><a href="/contact">Lets Work Together</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right social">
+              <li><a href="https://github.com/jonathanheemstra" class="icon-github"></a></li>
+              <li><a href="https://www.facebook.com/jonny.heemstra" class="icon-facebook2"></a></li>
+              <li><a href="https://www.instagram.com/jonny_heemstra/" class="icon-instagram"></a></li>
+              <li><a href="https://www.linkedin.com/in/jonathanheemstra" class="icon-linkedin"></a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <header class="jumbotron page-header hero">
+          <h1>Jonny Heemstra</h1>
+          <h4>Web Developer and Marketing Analyst</h4>
+        </header>
+        <section id="about">
+          <article>
+            <header>
+              <h2>About Me</h2>
+            </header>
+            <section>
+              <div class="row">
+                <img src="http://placehold.it/350x150" class="col-md-5 img-responsive">
+                <p class="col-md-7 text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               </div>
-            </div>
-          </a>   
-        </div>
-  
-        <div class="col-md-4">
-          <a href="#services" alt="Cloud Hosting">
-            <div class="thumbnail mt-service-thumb">
-              <div class="caption mt-service-thumb-text">
-                <span class="fa fa-cloud fa-5x"></span>
-                <h3>Cloud Hosting</h3>
-                <p>I can help you provision cloud hosting solutions that include Amazon Web Services (AWS), Microsoft Azure, Google Cloud, Google Apps, and WireNine</p>
+              <div class="row">
+                <img src="http://placehold.it/350x150" class="col-md-5 img-responsive">
+                <p class="col-md-7 text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               </div>
-            </div>
-          </a>
-        </div>
-        
-        <div class="col-md-4">
-          <a href="#services" alt="Development Process">
-            <div class="thumbnail mt-service-thumb">
-              <div class="caption mt-service-thumb-text">
-                <span class="fa fa-puzzle-piece fa-5x"></span>
-                <h3>Development Process</h3>
-                <p>I can help you organize your projects using standard Agile SDLC methodologies like SCRUM, KANBAN, and LEAN</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div> <!-- .row -->
-      
-      <!-- END SERVICE THUMBNAILS -->
-      
-    </div> <!-- .container -->
-    
-    <!-- END SERVICES -->
-    
-    <!-- PORTFOLIO -->
-    
-    <div id="portfolio" class="container mt-content-container mt-container-portfolio">
-      
-      <!-- HEADER -->
-      <div class="row mt-top-row-white text-muted"">
-        
-        <div class="col-md-6 col-md-offset-3">
-          <h1>MY PROJECTS</h1>
-          <div class="mt-block-line"></div>
-          <p class="lead">Here are a few samples of my work</p>        
-        </div>
-        
-      </div> <!-- .row -->
-      
-      <!-- PORTFOLIO THUMBNAILS -->
-      <div class="row mt-portfolio-thumb-row">
-        
-        <div class="col-md-3">
-          <div class="thumbnail mt-portfolio-thumb">
-            <a href="http://joesomma.me/portfolio/weatherapp/" target="_blank">            
-              <img src="http://joesomma.me/assets/images/weather-project.png" alt="Weather App">
-            </a>
-            <div class="caption mt-portfolio-thumb-text">
-              <h4>Weather Finder</h4>
-            </div>
-          </div>        
-        </div>
-        
-        <div class="col-md-3">
-          <div class="thumbnail mt-portfolio-thumb">
-            <a href="http://joesomma.me/portfolio/journalapp/" target="_blank">
-              <img src="http://joesomma.me/assets/images/journal-project.png" alt="Journal App">
-            </a>
-            <div class="caption mt-portfolio-thumb-text">
-              <h4>My Journal</h4>
-            </div>
-          </div>        
-        </div>
-       
-        <div class="col-md-3">
-          <div class="thumbnail mt-portfolio-thumb">
-            <a href="http://joesomma.me" target="_blank">
-              <img src="http://joesomma.me/assets/images/quotemachine-project.png" alt="Quote Machine App">
-            </a>
-            <div class="caption mt-portfolio-thumb-text">
-              <h4>LOTR Quote Machine</h4>
-            </div>
-          </div>        
-        </div>
-        
-        <div class="col-md-3">
-          <div class="thumbnail mt-portfolio-thumb">
-            <a href="https://www.freecodecamp.com/jsommamtek" target="_blank">
-              <img src="http://joesomma.me/assets/images/freecodecamp-project.png" alt="Free Code Camp">
-            </a>  
-            <div class="caption mt-portfolio-thumb-text">
-              <h4>Free Code Camp</h4>
-            </div>
-          </div>        
-        </div>
-
-      </div> <!-- END PORTFOLIO THUMBNAILS -->
-      
-    </div> <!-- .container -->
-    
-    <!-- END PORTFOLIO -->
-    
-    <!-- CONNECT -->
-    
-    <div id="connect" class="container-fluid mt-content-container mt-container-connect">
-
-      <div class="row mt-top-row text-muted">
-        
-       <!-- HEADER -->
-        <div class="col-md-6 col-md-offset-3">
-          <h1>CONNECT WITH ME</h1>
-          <div class="mt-block-line"></div>
-        </div>
-        
-      </div> <!-- .row -->
-      
-      <!-- SOCIAL MEDIA AND CONTACT FORM OUTER ROW -->
-      <div class="row">
-        
-        <!-- SOCIAL LINKS COLUMN -->
-        <div class="col-md-6 center">
-          
-          <p class="lead">Connect with me at these social media sites</p>
-          
-          <div class="row">
-            
-            <div class="col-md-4 col-md-offset-2 mt-social-links">
-              <a href="https://www.linkedin.com/in/somma" target="_blank" alt="LinkedIn">
-                <i class="fa fa-linkedin-square fa-fw fa-5x mt-fa-social"></i><br>LinkedIn
-              </a>              
-            </div>
-            
-            <div class="col-md-4 mt-social-links" >
-              <a href="https://github.com/jsommamtek" target="_blank" alt="GitHub">
-                <i class="fa fa-github-square fa-fw fa-5x mt-fa-social"></i><br>GitHub
-              </a>              
-            </div>
-
-          </div> <!-- .row -->
-                                    
-          <div class="row mt-social-links-row">
-            
-            <div class="col-md-4 col-md-offset-2 mt-social-links">
-              <a href="https://twitter.com/joesommamtek" target="_blank" alt="Twitter">
-                <i class="fa fa-twitter-square fa-fw fa-5x mt-fa-social"></i><br>Twitter
-              </a>              
-            </div>
-            
-            <div class="col-md-4 mt-social-links">
-              <a href="https://angel.co/joe-somma" target="_blank" alt="Angel List">
-                <i class="fa fa-angellist fa-fw fa-5x mt-fa-social"></i><br>Angel List
-              </a>              
-            </div>
-
-          </div> <!-- .row -->
-
-        </div> <!-- end social links column -->
-        
-
-        <! CONTACT FORM COLUMN -->
-        
-        <div class="col-md-6 center">
-          
-          <p class="lead">Please let me know how I can help you with your project </p>          
-          
-          <div class="row mt-connect-form-row">
-            
-            <div class="col-md-8 col-md-offset-2">
-              <form name="connect-form" method="post">			
-                      
-                <!-- NAME -->
+            </section>
+          </article>
+        </section>
+        <section id="projects">
+          <header>
+            <h2>Projects</h2>
+          </header>
+        </section>
+        <section id="github_stats">
+          <header>
+            <h2>GitHub Stats</h2>
+          </header>
+        </section>
+        <section id="contact">
+          <article>
+            <header>
+              <h2>Lets Work Together</h2>
+            </header>
+            <section>
+              <img src="/imgs/profile.jpg" alt="Jonny Heemstra headshot image" />
+              <ul class="social">
+                <li><a href="https://github.com/jonathanheemstra"><span class="icon-github"></span></a></li>
+                <li><a href="https://www.facebook.com/jonny.heemstra"><span class="icon-facebook2"></span></a></li>
+                <li><a href="https://www.instagram.com/jonny_heemstra/"><span class="icon-instagram"></span></a></li>
+                <li><a href="https://www.linkedin.com/in/jonathanheemstra"><span class="icon-linkedin"></span></a></li>
+              </ul>
+            </section>
+            <section class="contact">
+              <form>
                 <div class="form-group">
-                  <input name="name" value="" type="text" class="form-control" placeholder="YOUR NAME *"/>
+                  <label for="name">Name</label>
+                  <input type="text" name="name" value="" class="form-control">
                 </div>
-                
-                <!-- EMAIL -->
                 <div class="form-group">
-                  <input name="email" value="" type="email" class="form-control" placeholder="YOUR EMAIL *"/>
+                  <label for="email">Email</label>
+                  <input type="text" name="email" value="" class="form-control">
                 </div>
-                
-                <!-- MESSAGE BODY -->
                 <div class="form-group">
-                  <textarea name="message" class="form-control" rows="5" placeholder="YOUR MESSAGE *"></textarea>
+                  <label for="phone">Phone</label>
+                  <input type="text" name="phone" value="" class="form-control">
                 </div>
-                
-                <!-- SEND MESSAGE BUTTON -->
                 <div class="form-group">
-                  <button id="send-message" name="connect" class="btn btn-default btn-lg"><i class="fa fa-envelope fa-fw mt-fa-button"></i> SEND MESSAGE</buton>
+                  <label for="message">Message</label>
+                  <textarea name="message" rows="8" cols="1000" class="form-control"></textarea>
                 </div>
-                
-              </form>              
-            </div>
-          
-          </div> <!-- .row -->
-          
-        </div> <!-- end contact form column -->
-      
-      </div> <!-- .row -->
-  
-      <!-- FOOTER -->
-      <div class="row mt-copyright-row">
-          <p class="mt-copyright text-muted">Copyright &copy; Millentek, LLC 2015. All Rights Reserved</p>
-      </div> <!-- .row -->
-    
-    </div> <!-- .container -->
-    
-    <!-- END CONNECT -->
-    
-    <!-- TOP NAV-->
-      <div class="mt-scroll-up-link">
-        <a href="#home" alt="Scroll Top">
-          <span class="fa fa-angle-double-up"></span>
-        </a>        
-      </div>
+                <button type="button" name="button" class="btn btn-default">Lets Work Together</button>
+              </form>
+            </section>
+          </article>
+        </section>
+      </main>
+      <footer>
+        <nav class="footer_nav">
+          <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Lets Work Together</a></li>
+          </ul>
+        </nav>
+        <p>Copyright 2016 | JonathanHeemstra.com</p>
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.7.1/page.min.js"></script>
+    <script src="githubToken.js"></script>
+    <script src="data/projectsList.js"></script>
+    <script src="scripts/models/projects.js"></script>
+    <script src="scripts/models/repo.js"></script>
+    <script src="scripts/views/repoView.js"></script>
+    <script src="scripts/views/app.js"></script>
+    <script src="scripts/controllers/aboutController.js"></script>
+    <script src="scripts/controllers/contactController.js"></script>
+    <script src="scripts/controllers/homeController.js"></script>
+    <script src="scripts/controllers/projectsController.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
   </body>
+</html>
